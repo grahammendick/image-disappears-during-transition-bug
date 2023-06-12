@@ -2,6 +2,7 @@ package com.example;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.transition.Fade;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +33,12 @@ public class GalleryView extends ViewGroup {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.setReorderingAllowed(true);
         PaintingFragment fragment = new PaintingFragment(paintings.get(index));
+        Fade enterFade = new Fade();
+        enterFade.setDuration(2000);
+        fragment.setEnterTransition(enterFade);
+        Fade exitFade = new Fade();
+        exitFade.setDuration(2000);
+        fragment.setExitTransition(exitFade);
         fragmentTransaction.replace(getId(), fragment);
         fragmentTransaction.commit();
     }
