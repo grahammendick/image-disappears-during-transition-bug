@@ -1,6 +1,5 @@
 package com.example;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -20,6 +19,7 @@ import java.util.ArrayList;
 
 public class GalleryView extends ViewGroup {
     ArrayList<View> paintings = new ArrayList<>();
+    int index = 0;
 
     public GalleryView(Context context) {
         super(context);
@@ -31,7 +31,7 @@ public class GalleryView extends ViewGroup {
         FragmentManager fragmentManager = currentActivity.getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.setReorderingAllowed(true);
-        PaintingFragment fragment = new PaintingFragment(paintings.get(0));
+        PaintingFragment fragment = new PaintingFragment(paintings.get(index));
         fragmentTransaction.replace(getId(), fragment);
         fragmentTransaction.commit();
     }

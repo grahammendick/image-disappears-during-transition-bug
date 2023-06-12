@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.ViewGroupManager;
+import com.facebook.react.uimanager.annotations.ReactProp;
 
 public class GalleryViewManager extends ViewGroupManager<GalleryView> {
     @NonNull
@@ -18,6 +19,11 @@ public class GalleryViewManager extends ViewGroupManager<GalleryView> {
     @Override
     protected GalleryView createViewInstance(@NonNull ThemedReactContext themedReactContext) {
         return new GalleryView(themedReactContext);
+    }
+
+    @ReactProp(name = "index")
+    public void setEnterAnim(GalleryView view, int index) {
+        view.index = index;
     }
 
     @Override
