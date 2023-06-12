@@ -26,6 +26,7 @@ public class GalleryView extends ViewGroup {
     }
 
     void onAfterUpdateTransaction() {
+        if (paintings.size() == 0) return;
         FragmentActivity currentActivity = (FragmentActivity) ((ThemedReactContext) getContext()).getCurrentActivity();
         FragmentManager fragmentManager = currentActivity.getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
