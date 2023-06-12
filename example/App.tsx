@@ -46,6 +46,8 @@ const styles = StyleSheet.create({
   },
   description: {
     padding: 10,
+    fontSize: 20,
+    color: '#000'
   }
 });
 
